@@ -13,7 +13,7 @@ Create a class called Car
     public int year, miles;
     public double price;
 
-    public Car(String brand, String model, String color, int year, int miles, double price) {
+    public Car(String brand, String model, int year, int miles, String color,   double price) {
         this.brand = brand;
         this.model = model;
         this.color = color;
