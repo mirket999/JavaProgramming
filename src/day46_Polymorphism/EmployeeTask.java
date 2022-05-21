@@ -66,7 +66,7 @@ public class EmployeeTask {
         //store all the testers into the following List of testers:
         List<Tester> testers = new ArrayList<>();
         for (Employee each : scrumMembers) {
-            if (each.getClass().getSimpleName().equalsIgnoreCase("tester")){
+            if (each instanceof Tester){
                 testers.add((Tester) each);
             }
         }
@@ -75,7 +75,7 @@ public class EmployeeTask {
 //store all the developers into the following List of developers:
         List<Developer> developers = new ArrayList<>();
         for (Employee each : scrumMembers) {
-            if (each.getClass().getSimpleName().equalsIgnoreCase("developer")){
+            if (each.getClass().getSimpleName().equalsIgnoreCase("developer")){ //different approach instead of "instanceof " keyword.
                 developers.add((Developer) each);
             }
         }

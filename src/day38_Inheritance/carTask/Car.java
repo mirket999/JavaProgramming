@@ -32,8 +32,8 @@ Create a class called Car
 
     @Override
     public String toString() {
-        return "Toyota{" +
-                "brand='" + brand + '\'' +
+        return getClass().getSimpleName() +
+                "{ brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", color='" + color + '\'' +
                 ", year=" + year +

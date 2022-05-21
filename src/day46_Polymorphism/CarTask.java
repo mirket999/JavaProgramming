@@ -5,7 +5,7 @@ public class CarTask {
     public static void main(String[] args) {
         Car[] cars = {
                 new Toyota("Highlander", 2010, 25000, "White", 255000),
-                new BMW("X5", 2014, 32000, "Red", 12000),
+                new BMW("X5", 2014, 320000, "Red", 12000),
                 new Toyota("Corolla", 2011, 20000, "White", 310000),
                 new BMW("M3", 2015, 33000, "Blue", 14030),
                 new BMW("M5", 2017, 35000, "Black", 15000),
@@ -22,8 +22,8 @@ public class CarTask {
         };
 
       eligibleCars(cars);
-        System.out.println(highestMileAge(cars));
-        System.out.println(lowestMileAge(cars));
+        System.out.println(carWithHighestMile(cars));
+        System.out.println(carWithHighestLowestMile(cars));
 
 
 
@@ -31,29 +31,43 @@ public class CarTask {
 
     public static void eligibleCars (Car[] cars){
         for (Car each : cars) {
-            if (each.year>=2010 && each.year<=2011){
-                System.out.println("Is eligible for recall: " + each);
+            if (each instanceof Toyota) {
+                if (each.year == 2010 || each.year == 2011) {
+                    System.out.println("Is eligible for recall: " + each);
+                }
             }
+            if (each instanceof BMW) {
+                System.out.println(each);
+            }
+
+            if (each instanceof Tesla) {
+                if (each.year == 2015 || each.year == 2016) {
+                    System.out.println("Is eligible for recall: " + each);
+                }
+            }
+
         }
     }
 
-    public static int highestMileAge(Car[] cars){
-       int max = Integer.MIN_VALUE;
-        for (Car each : cars) {
-         if (each.miles>=max){
-             max=each.miles;
-         }
-        }
-        return max;
-    }
-
-    public static int lowestMileAge(Car[] cars){
-        int min = Integer.MAX_VALUE;
-        for (Car each : cars) {
-            if (each.miles<=min){
-                min=each.miles;
+    public static Car carWithHighestMile (Car[] cars){
+      Car carWithHighestMile = cars[0];
+        for (Car eachCar : cars) {
+            if (eachCar.miles> carWithHighestMile.miles){
+                carWithHighestMile=eachCar;
             }
         }
-        return min;
+
+        return carWithHighestMile;
+    }
+
+    public static Car carWithHighestLowestMile(Car[] cars){
+        Car carWithHighestLowestMile = cars[0];
+        for (Car eachCar : cars) {
+            if (eachCar.miles< carWithHighestLowestMile.miles){
+                carWithHighestLowestMile=eachCar;
+            }
+        }
+
+        return carWithHighestLowestMile;
     }
 }
