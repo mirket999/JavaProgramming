@@ -1,20 +1,62 @@
-package day50_Collections_Map;
+package day50_Collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class ListSetPractice {
+
+
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 3, 4, 5, 5, 6));
 
-        Iterator<Integer> it = list.iterator();
-        System.out.println("it.hasNext() = " + it.hasNext());
-        System.out.println("it.next() = " + it.next());
+        Set<Integer> set = new HashSet<>();
+        set.addAll(Arrays.asList(1,2,3,4,5,1,2,3,4,5));
 
-        // remove için while döngüsünü dene.
+        System.out.println(set);
+
+        // Integer[] array = set.toArray(new Integer[0]);
+
+        List<Integer> list =new ArrayList<>( set );
+
+        System.out.println(list);
+
+
+        //  List<String> names = null;
+        // System.out.println(names.size());
+
+        System.out.println("----------------------------------------");
+
+        // pop() ==> LIFO
+        List<Character> chars = new Stack<>();
+        chars.addAll(Arrays.asList('A', 'B', 'C', 'D'));
+
+        System.out.println("chars = " + chars); //[A, B, C, D]
+
+        (  (Stack)chars ).pop();
+
+        System.out.println("chars = " + chars); //[A, B, C]
+
+
+        //poll() ==> FIFO
+
+        List<String> names = new LinkedList<>();
+        names.addAll(Arrays.asList("James", "Jimmy", "Kathy", "Breanna", "Max"));
+
+        System.out.println(names);
+
+        ((LinkedList<String>) names).poll();
+
+        System.out.println(names);
+
+        ((LinkedList<String>) names).poll();
+
+        System.out.println(names);
+
+
+
+
+
 
 
     }
+
+
 }
