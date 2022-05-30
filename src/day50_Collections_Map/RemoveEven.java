@@ -1,4 +1,4 @@
-package day50_Collections;
+package day50_Collections_Map;
 
 import java.util.Arrays;
 import java.util.Iterator;
