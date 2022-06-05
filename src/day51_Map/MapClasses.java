@@ -33,6 +33,9 @@ public class MapClasses {
         linkedHashMap.put(5, "Ahmet");
         linkedHashMap.put(5, "Isabella");
         linkedHashMap.put(null, "Hulya");
+        linkedHashMap.put(6, null);
+        linkedHashMap.put(7, null);
+        linkedHashMap.put(8, null);
 
         System.out.println("linkedHashMap = " + linkedHashMap);
 
@@ -56,7 +59,7 @@ public class MapClasses {
         hashtable.put(40, "Emma");
         hashtable.put(5, "Ahmet");
         hashtable.put(5,"Isabella");
-        hashtable.put(6, null);
+        //hashtable.put(6, null);
 
         System.out.println("hashtable = " + hashtable);
 
