@@ -2,7 +2,9 @@ package day53_FunctionalInterface;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -101,14 +103,65 @@ public class BuildInFunctionalInterfaces1 {
 
         List<Integer> numbers = new ArrayList<>(Arrays.asList(1,2,34,5));
         System.out.println("convertToArr.apply(numbers) = " + Arrays.toString(convertToArr.apply(numbers)));
+
         // create a function that can return the maximum number from an int array
+        Function<int[], Integer> maxNumberInArray ;
+        maxNumberInArray = (a)->{
+            Integer max = Integer.MIN_VALUE;
+            for (int each : a) {
+                if (each>max){
+                    max=each;
+                }
+            }
+            return max;
+        };
+        int[] arr1 = {1,2,3,4,5,6,7,8,9};
+        System.out.println("maxNumberInArray = " + maxNumberInArray.apply(arr1));
 
 
         // create a function that can swap the first and last elements of an array
+        Consumer<String []> swapElements;
+        swapElements = (a)-> {
+            String temp = a[0];
+            a[0] = a[a.length-1];
+            a[a.length-1]=temp;
+
+        };
+
+        String[] strArray = {"Hasan", "Ali", "Zehra", "Huseyin", "Osman", "123456"};
+        swapElements.accept(strArray);
+        System.out.println("strArray = " + Arrays.toString(strArray));
+
 
         // Create a function that can reverse an array and returns it
+        Function<int[], int[]> reverseArray;
+        reverseArray = (a) -> {
+            int[] reversedArray = new int[a.length];
+            int k = a.length-1;
+            for (int each : a) {
+              reversedArray[k--] = each;
+            }
+            return reversedArray;
+        };
+
+        int[] arr2 = {1,2,3,4,5,6,7,8,9};
+        int[] newArray = reverseArray.apply(arr2);
+        System.out.println(Arrays.toString(newArray));
 
         // create a function that can reverse a List
+
+        Function<List<Integer>, List<Integer>> reverseList;
+        reverseList = (a)-> {
+            List<Integer> reversedList = new ArrayList<>();
+            for (int i = a.size() - 1; i >= 0; i--) {
+             reversedList.add(a.get(i));
+            }
+
+            return reversedList;
+        };
+
+        List<Integer> listInt = new LinkedList<>(Arrays.asList(1,2,3,4));
+        System.out.println(reverseList.apply(listInt));
 
     }
 }
